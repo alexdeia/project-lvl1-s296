@@ -2,7 +2,6 @@
   "name": "brain-games-296",
   "version": "1.1.1",
   "description": "Hexlet project",
-  "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
