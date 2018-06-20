@@ -8,10 +8,10 @@ const playGame = (playerName) => {
       return count;
     }
 
-    const requestedNumber = getRandomNumber();
-    console.log('Question: ', requestedNumber);
+    const question = getRandomNumber();
+    console.log('Question: ', question);
     const answer = readlineSync.question('Your answer: ');
-    const rightAnswer = isEven(requestedNumber) ? 'yes' : 'no';
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
 
     if (answer !== rightAnswer) {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
