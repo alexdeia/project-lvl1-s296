@@ -38,20 +38,20 @@ export const runGame = (task, getGameData) => {
   const playerName = greeting(task());
   const attempts = 3;
 
-  const iter = (count) => {
-    if (count === 0) {
+  const iter = (counter) => {
+    if (counter === 0) {
       return console.log(`Congratulations, ${playerName}!`);
     }
     const { rightAnswer, question } = getGameData();
     console.log(question);
     const playerAnswer = +readlineSync.question('Your answer: ');
 
-    if (playerAnswer === rightAnswer.result) {
+    if (playerAnswer === rightAnswer) {
       console.log('Correct!');
-      return iter(count - 1);
+      return iter(counter - 1);
     }
-    console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${rightAnswer.result}.`);
-    return iter(count);
+    console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
+    return iter(counter);
   };
   return iter(attempts);
 };
