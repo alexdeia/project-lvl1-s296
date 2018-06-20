@@ -1,12 +1,13 @@
 {
   "name": "brain-games-296",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Hexlet project",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
-    "brain-gcd": "dist/bin/brain-gcd.js"
+    "brain-gcd": "dist/bin/brain-gcd.js",
+    "brain-balance": "dist/bin/brain-balance.js"
   },
   "files": [
     "dist"

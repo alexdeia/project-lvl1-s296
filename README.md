@@ -13,3 +13,5 @@
 1. `$ brain-games`
 2. `$ brain-even`
 3. `$ brain-calc`
+4. `$ brain-gdc`
+5. `$ brain-balance`
