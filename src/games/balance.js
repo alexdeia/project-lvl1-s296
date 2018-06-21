@@ -1,4 +1,4 @@
-import { getRandomNumber, runGame } from '../common-function';
+import { getRandomNumber, runGame } from '../utils';
 
 const getTask = () => 'Balance the given number.';
 
@@ -18,7 +18,7 @@ const getBalanceNum = (num) => {
     acc[acc.indexOf(max)] -= 1;
     return balancer(acc);
   };
-  return +balancer(arrDigits).join('');
+  return balancer(arrDigits).join('');
 };
 
 const getData = () => {

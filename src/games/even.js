@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomNumber, isEven } from '../common-function';
+import { getRandomNumber, isEven } from '../utils';
 
 const playGame = (playerName) => {
   const iter = (count) => {
