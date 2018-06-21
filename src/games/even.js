@@ -1,33 +1,13 @@
-import readlineSync from 'readline-sync';
+import runGame from '../game-runner';
 import { getRandomNumber, isEven } from '../utils';
 
-const playGame = (playerName) => {
-  const iter = (count) => {
-    if (count === 0) {
-      console.log(`Congratulations, ${playerName}!`);
-      return count;
-    }
+const task = 'Answer "yes" if number even otherwise answer "no".';
 
-    const question = getRandomNumber();
-    console.log('Question: ', question);
-    const answer = readlineSync.question('Your answer: ');
-    const rightAnswer = isEven(question) ? 'yes' : 'no';
-
-    if (answer !== rightAnswer) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
-      return iter(count);
-    }
-    console.log('Correct!');
-    return iter(count - 1);
-  };
-  return iter(3);
+const getData = () => {
+  const randomNumber = getRandomNumber();
+  const question = `${randomNumber}`;
+  const rightAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  return { rightAnswer, question };
 };
 
-export default () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if number even otherwise answer "no".', '\n');
-
-  const playerName = readlineSync.question('May I have your name? ');
-
-  playGame(playerName);
-};
+export default () => runGame(task, getData);

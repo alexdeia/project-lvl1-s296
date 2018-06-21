@@ -1,34 +1,27 @@
-import { getRandomNumber, runGame } from '../utils';
+import runGame from '../game-runner';
+import { getRandomNumber } from '../utils';
 
-const getRandomOperation = (num1, num2) => {
-  const data = {};
-  switch (getRandomNumber(0, 2)) {
-    case 0:
-      data.result = num1 + num2;
-      data.operation = '+';
-      break;
-    case 1:
-      data.result = num1 - num2;
-      data.operation = '-';
-      break;
-    case 2:
-      data.result = num1 * num2;
-      data.operation = '*';
-      break;
-    default:
-      break;
-  }
-  return data;
+const getRandomOperation = () => {
+  const operations = ['+', '-', '*'];
+  return operations[getRandomNumber(0, 2)];
 };
 
-const getTask = () => 'What is the result of the expression?';
+const calculate = {
+  '+': (num1, num2) => num1 + num2,
+  '-': (num1, num2) => num1 - num2,
+  '*': (num1, num2) => num1 * num2,
+};
+
+const task = 'What is the result of the expression?';
 
 const getData = () => {
   const num1 = getRandomNumber();
   const num2 = getRandomNumber();
-  const { result: rightAnswer, operation } = getRandomOperation(num1, num2);
-  const question = `Question: ${num1} ${operation} ${num2}`;
-  return { rightAnswer, question };
+  const randomOperation = getRandomOperation();
+  const question = `${num1} ${randomOperation} ${num2}`;
+  const rightAnswer = calculate[randomOperation](num1, num2);
+
+  return { question, rightAnswer };
 };
 
-export default () => runGame(getTask, getData);
+export default () => runGame(task, getData);

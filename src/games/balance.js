@@ -1,31 +1,24 @@
-import { getRandomNumber, runGame } from '../utils';
+import runGame from '../game-runner';
+import { getRandomNumber } from '../utils';
 
-const getTask = () => 'Balance the given number.';
+const task = 'Balance the given number.';
 
 const getBalanceNum = (num) => {
-  const sNum = String(num);
-  const arrDigits = sNum.split('').map(digit => +digit);
-
-  const balancer = (digits) => {
-    const acc = digits;
-    const min = Math.min(...acc);
-    const max = Math.max(...acc);
-    if ((max - min) < 2) {
-      return acc.sort();
-    }
-
-    acc[acc.indexOf(min)] += 1;
-    acc[acc.indexOf(max)] -= 1;
-    return balancer(acc);
-  };
-  return balancer(arrDigits).join('');
+  const arrDigits = String(num).split('').map(digit => +digit);
+  while ((Math.max(...arrDigits) - Math.min(...arrDigits)) > 1) {
+    const min = Math.min(...arrDigits);
+    const max = Math.max(...arrDigits);
+    arrDigits[arrDigits.indexOf(min)] += 1;
+    arrDigits[arrDigits.indexOf(max)] -= 1;
+  }
+  return arrDigits.sort().join('');
 };
 
 const getData = () => {
   const num = getRandomNumber(10, 5000);
   const rightAnswer = getBalanceNum(num);
-  const question = `Question: ${num}`;
+  const question = `${num}`;
   return { rightAnswer, question };
 };
 
-export default () => runGame(getTask, getData);
+export default () => runGame(task, getData);
