@@ -3,7 +3,7 @@ import { getRandomNumber } from '../utils';
 
 const generateProgression = (start, step, progressionLength = 10) => {
   const iter = (num, acc) => {
-    if (acc.length > progressionLength) {
+    if (acc.length >= progressionLength) {
       return acc;
     }
     return iter(num + step, [...acc, num + step]);
@@ -13,7 +13,7 @@ const generateProgression = (start, step, progressionLength = 10) => {
 
 const hideNumber = (progression) => {
   const arrProgression = progression.split(' ');
-  const randomIndex = getRandomNumber(0, arrProgression.length);
+  const randomIndex = getRandomNumber(0, arrProgression.length - 1);
   const rightAnswer = arrProgression[randomIndex];
   arrProgression[randomIndex] = '..';
   return { sProgression: arrProgression.join(' '), rightAnswer };
