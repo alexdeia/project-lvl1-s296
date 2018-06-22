@@ -20,7 +20,6 @@ const getData = () => {
   const randomOperation = getRandomOperation();
   const question = `${num1} ${randomOperation} ${num2}`;
   const rightAnswer = calculate[randomOperation](num1, num2);
-
   return { question, rightAnswer };
 };
 

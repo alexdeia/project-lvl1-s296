@@ -15,3 +15,4 @@
 3. `$ brain-calc`
 4. `$ brain-gdc`
 5. `$ brain-balance`
+6. `$ brain-progression`
