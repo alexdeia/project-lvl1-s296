@@ -18,7 +18,7 @@ export default (task, getGameData, attempts = 3) => {
     console.log(`Question: ${question}`);
     const playerAnswer = readlineSync.question('Your answer: ');
 
-    if (playerAnswer === String(rightAnswer)) {
+    if (playerAnswer === rightAnswer) {
       console.log('Correct!');
       iter(counter - 1);
       return;

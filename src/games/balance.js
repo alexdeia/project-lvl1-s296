@@ -1,5 +1,5 @@
 import runGame from '../game-runner';
-import { getRandomNumber } from '../utils';
+import getRandomNumber from '../utils';
 
 const task = 'Balance the given number.';
 

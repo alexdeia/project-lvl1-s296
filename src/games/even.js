@@ -1,5 +1,7 @@
 import runGame from '../game-runner';
-import { getRandomNumber, isEven } from '../utils';
+import getRandomNumber from '../utils';
+
+export const isEven = num => num % 2 === 0;
 
 const task = 'Answer "yes" if number even otherwise answer "no".';
 

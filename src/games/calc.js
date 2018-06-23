@@ -1,5 +1,5 @@
 import runGame from '../game-runner';
-import { getRandomNumber } from '../utils';
+import getRandomNumber from '../utils';
 
 const getRandomOperation = () => {
   const operations = ['+', '-', '*'];
@@ -19,7 +19,7 @@ const getData = () => {
   const num2 = getRandomNumber();
   const randomOperation = getRandomOperation();
   const question = `${num1} ${randomOperation} ${num2}`;
-  const rightAnswer = calculate[randomOperation](num1, num2);
+  const rightAnswer = `${calculate[randomOperation](num1, num2)}`;
   return { question, rightAnswer };
 };
 
