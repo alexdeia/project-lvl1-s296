@@ -8,7 +8,9 @@ const greeting = (task) => {
   return playerName;
 };
 
-export default (task, getGameData, attempts = 3) => {
+const attempts = 3;
+
+export default (task, getGameData) => {
   const playerName = greeting(task);
   const iter = (counter) => {
     if (counter === 0) {
