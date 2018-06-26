@@ -5,14 +5,14 @@ const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
-  const iter = (acc) => {
-    if (acc >= num / 2) {
+  const iter = (div) => {
+    if (div >= num / 2) {
       return true;
     }
-    if (num % acc === 0) {
+    if (num % div === 0) {
       return false;
     }
-    return iter(acc + 1);
+    return iter(div + 1);
   };
   return iter(2);
 };
